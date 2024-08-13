@@ -1,25 +1,49 @@
 //1.Number Guessing Game
 #include <iostream>
- #include <cstdlib>
- #include <ctime>
+#include <cstdlib>
+#include <ctime>
+using namespace std;
  int main() { // Seed the random number generator with the current time
- std::srand(std::time(0)); // Generate a random number between 1 and 100 
-int randomNumber = std::rand() % 100 + 1;
+ srand(time(0)); // Generate a random number between 1 and 100 
+ int randomNumber = rand() % 100 + 1;
  int userGuess = 0; 
-  std::cout << "Welcome to the Number Guessing Game!" << std::endl; 
-std::cout << "I have selected a number between 1 and 100." << std::endl;
- std::cout << "Can you guess what it is?" << std::endl; // Loop until the user guesses the correct number
+ 
+ cout << "Welcome to the Number Guessing Game!" << endl; 
+ cout << "I have selected a number between 1 and 100." << endl;
+ cout << "Can you guess what it is?" << endl; // Loop until the user guesses the correct number
+ 
  while (userGuess != randomNumber) {
- std::cout << "Enter your guess: ";
- std::cin >> userGuess; 
-if (userGuess < randomNumber) {
-     std::cout << "Too low! Try again." << std::endl;
+ cout << "Enter your guess: ";
+ cin >> userGuess; 
+ if (userGuess < randomNumber) {
+     std::cout << "Too low! Try again." << endl;
+    } 
+    else if (userGuess > randomNumber) {
+     cout << "Too high! Try again." << endl;
+    } else { 
+     cout << "Congratulations! You guessed the correct number." << std::endl; 
+    } 
  } 
-else if (userGuess > randomNumber) {
- std::cout << "Too high! Try again." << std::endl;
- } else { 
-std::cout << "Congratulations! You guessed the correct number." << std::endl; 
-} 
-} 
    return 0;
- }
+}
+
+// OUTPUT
+/*
+Welcome to the Number Guessing Game!
+I have selected a number between 1 and 100.
+Can you guess what it is?
+Enter your guess: 26
+Too low! Try again.
+Enter your guess: 50
+Too high! Try again.
+Enter your guess: 30
+Too low! Try again.
+Enter your guess: 35
+Too high! Try again.
+Enter your guess: 32
+Too high! Try again.
+Enter your guess: 33
+Too high! Try again.
+Enter your guess: 31
+Congratulations! You guessed the correct number.
+*/ 
